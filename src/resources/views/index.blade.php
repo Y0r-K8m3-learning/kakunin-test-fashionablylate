@@ -18,6 +18,7 @@
       <button class="attendance__button-submit" type="submit">勤務終了</button>
     </form>
   </div>
+
   <div class="attendance-table">
     <table class="attendance-table__inner">
       <tr class="attendance-table__row">

@@ -7,9 +7,10 @@
 @section('content')
 <div class="register__content">
   <div class="register-form__heading">
-    <h2>会員登録</h2>
+    <h2>Register</h2>
   </div>
-  <form class="form">
+  <form class="form"  action="/register" method="post">
+    @csrf
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--item">お名前</span>
@@ -31,7 +32,7 @@
       </div>
       <div class="form__group-content">
         <div class="form__input--text">
-          <input type="email" name="email" value="{{ old('email') }}" />
+          <input type="text" name="email" value="{{ old('email') }}" />
         </div>
         <div class="form__error">
           @error('email')
@@ -52,16 +53,6 @@
           @error('password')
           {{ $message }}
           @enderror
-        </div>
-      </div>
-    </div>
-    <div class="form__group">
-      <div class="form__group-title">
-        <span class="form__label--item">確認用パスワード</span>
-      </div>
-      <div class="form__group-content">
-        <div class="form__input--text">
-          <input type="password" name="password_confirmation" />
         </div>
       </div>
     </div>
