@@ -11,5 +11,12 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/register', [AuthController::class, 'store']);
 
+      Route::get('/contact', function(){
+        return view('contact');
+      });
+
+            Route::get('/', function(){
+        return view('contact');
+      });
 
 
