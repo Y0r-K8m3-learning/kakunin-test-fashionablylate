@@ -17,8 +17,9 @@
   5. `php artisan migrate`
   6. `php artisan db:seed`
 　
-  ※OSによって、ログファイル権限エラー（「The stream or flie ～ Permission deinied」）エラーが発生する場合があります。
-  `sudo chmod 777 -R [storage]`
+  ※OSによって、ログファイル権限エラー
+ stream or flie ～ Permission deinied」）エラーが発生する場合は下記コマンドを実行してください。
+  `sudo chmod 777 -R storage`
 
 ## 使用技術(実行環境)
 - PHP 8.3.7
@@ -27,7 +28,21 @@
 
   
 ## ER図
-![ER図](https://github.com/Y0r-K8m3-learning/kakunin-test-fashionablylate/blob/main/README.md)
+![ER](https://github.com/Y0r-K8m3-learning/kakunin-test-fashionablylate/assets/171590806/d02daefc-9ce3-45cd-9a2c-b8d9b582ce43)
 
 ## URL
 -開発環境：http://localhost/
+
+##未実装
+-問い合わせフォームへのルーティングが正しく設定できていません。
+"/"ではアクセスできません。アクセス時は "/contact"でアクセスしてください。
+
+-モーダル表示が1行目のみのデータしか表示できません。
+　（削除も1行目しかできません）
+
+-CSVエクスポート
+ 検索時の最初の7行目までしか出力されません。
+
+-レイアウト
+　解像度によってはレイアウトが崩れます。
+
