@@ -27,7 +27,7 @@
 
   
 ## ER図
-([ER.png](https://github.com/Y0r-K8m3-learning/kakunin-test-fashionablylate/blob/main/README.md))
+![ER図](https://github.com/Y0r-K8m3-learning/kakunin-test-fashionablylate/blob/main/README.md)
 
 ## URL
 -開発環境：http://localhost/
