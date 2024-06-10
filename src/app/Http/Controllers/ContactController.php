@@ -15,7 +15,7 @@ class ContactController extends Controller
 
     $categories = Category::all();
      $genders = Gender::genders;
-    return view('index', compact('categories','genders'));
+    return view('contact', compact('categories','genders'));
   }
 
   public function confirm(ContactRequest $request){

@@ -9,9 +9,11 @@ use App\Models\Contact;
 use App\Models\Gender;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+
         public function index()
         {
             return view('auth.login');
@@ -19,7 +21,16 @@ class AuthController extends Controller
         }
         public function login(LoginRequest $request)
         {
-            $contacts = Contact::with('category')->paginate(7);;
+            $credentials = $request->only('email', 'password');
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate();
+
+                // ログイン後のリダイレクト先を設定
+                if ($request->session()->has('url.intended')) {
+                    return redirect()->intended();
+                }
+
+                  $contacts = Contact::with('category')->paginate(7);;
 
             $categories = Category::all();
 
@@ -27,6 +38,12 @@ class AuthController extends Controller
 
             return view('admin', compact('contacts', 'categories','genders' ));
 
+
+                return redirect()->intended('/admin'); // デフォルトのリダイレクト先
+            }
+
+                        
+          
         }
 
         // 追加機能

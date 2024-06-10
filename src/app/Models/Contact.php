@@ -41,7 +41,7 @@ public function getGenderNameAttribute()
           $query->where('first_name', 'like', '%' . $searchParameters['name'] . '%')->orWhere('last_name', 'like', '%' . $searchParameters['name'] . '%')
           ->orWhere('email', 'like', '%' . $searchParameters['name'] . '%');
         }
-        if (!empty($searchParameters['gender'])) {
+        if (!empty($searchParameters['gender']) && array_key_exists($searchParameters['gender'], Gender::genders)) {
           $query->where('gender', $searchParameters['gender']);
         }
         if (!empty($searchParameters['category_id'])) {

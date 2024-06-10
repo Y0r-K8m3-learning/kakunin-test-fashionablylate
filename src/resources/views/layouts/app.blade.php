@@ -20,10 +20,9 @@
         </a>
         <nav>
           <ul class="header-nav">
-            {{var_dump(Auth::check())}}
             @if (Auth::check())
             <li class="header-nav__item">
-              <form class="form" action="/logout" method="post">
+              <form class="form-logout" action="/logout" method="post">
                 @csrf
                 <button class="header-nav__button">ログアウト</button>
               </form>

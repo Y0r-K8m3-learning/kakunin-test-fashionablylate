@@ -67,6 +67,8 @@
 }
 
 
+
+
 .form__input--text-input{
   appearance: none;
   border: none;
@@ -80,7 +82,15 @@
 
 .form__input--text-input-name{
   width: 150px;
+}
 
+.form__input--text-input-name:nth-child(2){
+  width: 150px;
+  margin-left: 20px;
+}
+
+.form__input--text-name:nth-child(2){
+  margin-left:10px ;
 }
 
 .form__input--radio{

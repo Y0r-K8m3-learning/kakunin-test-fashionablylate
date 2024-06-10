@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
 </head>
 <body>
-
     <label for="modalToggle" class="btn">詳細</label>
     <input type="checkbox" id="modalToggle">
     <div class="modal">
+
         <div class="modal-content">
             <label for="modalToggle" class="close">&times;</label>
             <form class="confirm-form" action="/contact/delete" method="post">

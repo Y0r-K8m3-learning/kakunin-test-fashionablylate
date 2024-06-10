@@ -23,7 +23,9 @@ body{
   justify-content: space-between;
 
 }
-
+.form-logout{
+  height: 50px;
+}
 .header__logo {
   color: #c5bba6;
   text-align: center;
@@ -34,6 +36,9 @@ body{
   margin: 0px auto;
 }
 
+.header-nav__item{
+  height: 10px;
+}
 .header-utilities nav {
   width: 18%;
 }

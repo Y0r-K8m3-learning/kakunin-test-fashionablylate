@@ -21,10 +21,10 @@
         </div>
       <div class="search-form__item-group-item">
         <div class="search-form__item-select-wrapper">
-          <select class="search-form__item-select search-form__item-select-gender" >
-            <option  selected hidden>性別</option>
+          <select class="search-form__item-select search-form__item-select-gender"  name="gender">
+            <option  selected disabled  hidden>性別</option>
             @foreach ($genders as $gender)
-            <option name="gender" value="{{ $gender['id'] }}">{{ $gender['name'] }}</option>
+            <option value="{{ $gender['id'] }}">{{ $gender['name'] }}</option>
             @endforeach
           </select>
         </div>
@@ -57,13 +57,14 @@
 
   <div class="search-form-subcontent">
     <div >
-  <form action="/contacts/export"  method="post">
-  <button type="button" class="csv-export-form__button-export">エクスポート</button>
-  </form>
+    <a class="csv-export-form__button-export" href="{{ route('search.export') }}">エクスポート</a>
 </div>
 
   <div class="search-form-subcontent__pagenation">
-  {{ $contacts?? $contacts->onEachSide(1)->links('vendor.pagination.mybootstrap-5')}}
+    @if(count($contacts) >0)
+     {{ $contacts?? $contacts->onEachSide(1)->links('vendor.pagination.mybootstrap-5')}}
+    @endif
+ 
 </div>
 </div>
 
@@ -78,13 +79,13 @@
         <th class="search-table__header"></th>
       </tr>
        @foreach ($contacts as $contact)
+       <input type="hidden" name="id" value="{{ $contact['id'] }}">
       <tr class="search-table__row">
         <td class="search-table__item">{{$contact['last_name'].'　'.$contact['first_name']}}</td>
         <td class="search-table__item">{{$contact['gendername']}}</td>
         <td class="search-table__item">{{$contact['email']}}</td>
         <td class="search-table__item">{{$contact['category']['content']}}</td>
         <td class="search-table__item"> 
-            <input type="hidden" name="id" value="{{ $contact['id'] }}">
              @include('modal', ['contact' => $contact])
         </td>
       </tr>

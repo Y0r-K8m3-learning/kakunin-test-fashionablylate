@@ -45,7 +45,7 @@
           <div class="form__group-content">
             <div class="form__input--radio">
               @foreach($genders as $gender)
-              <input type="radio"  name="gender" value="{{ $gender['id'] }}" {{ old('gender') == $gender['id'] ? 'checked' : '' }}>
+              <input type="radio"  name="gender" value="{{ $gender['id'] }}" {{ old('gender') == $gender['id'] ? 'checked' : ($gender['id']==1?'checked':'') }} {{'select'}}>
                {{$gender['name']}}
               @endforeach
             </div>
