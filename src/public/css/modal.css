@@ -1,0 +1,113 @@
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 80px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            height: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked ~ .modal {
+            display: block;
+        }
+        
+.btn {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color:  #9a714e59;
+  background-color: #e2ddc871;
+  border: #9a714e2e 1px solid ;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.confirm-form{
+  margin: 40px 40px;
+}
+.confirm-table__inner{
+    height: 400px;
+}
+.btn:hover {
+  color:  #9a714e;
+}
+
+
+.confirm-table__header{
+    text-align: left;
+    vertical-align: top;
+    width: 100px;
+     
+}
+
+.confirm-table__row{
+    padding-left: 20px;
+}
+textarea,input[type="text"]{
+    
+    color:#837d79;
+    border: none;
+    text-align: left;
+    width: 200px;
+}
+
+textarea{
+ resize: none;
+
+}
+.confirm-table__text{
+   padding-left:20px;
+   text-decoration: none;
+    vertical-align: top;
+    width: 50%;
+    text-align: left;
+
+}
+
+.form__button-submit {
+
+  padding: 10px;
+  width: 80px;
+  height: 40px;
+  border: none;
+  background: #df4f0c;
+  color: #fff;  
+  cursor: pointer;
+  margin-left: 10px;
+}
+

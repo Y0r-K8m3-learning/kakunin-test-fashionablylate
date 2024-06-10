@@ -1,0 +1,166 @@
+.form-confirm__content{
+
+  margin: 0 auto;
+  height: 100%;
+  max-width: 1230px;
+  
+
+}
+
+.form-confirm__content-wrapper{
+  display: flex;
+  justify-content: center;
+}
+.form-confirm__content {
+  border-top:1px solid  #83838351;
+  margin: 0 auto;
+  padding: 30px 15px;
+  max-width: 1230px;
+  background-color: #fff;
+  height: 100%;
+
+}
+
+.form-confirm__heading {
+  padding-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  color: #838383;
+
+}
+
+.form-confirm-table__inner{
+  border-color: #dad8d692;
+}
+
+.form-confirm {
+  padding: 20px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+
+}
+.form-confirm-table__header{
+  color: #fff;
+  background: #552f1d80;
+  font-weight: 100;
+  text-align: left;
+  padding-left: 20px;
+  width: 200px;
+}
+.form-confirm__group {
+  display: flex;
+  flex-direction: row;
+  margin:  20px auto;
+  width: 70%;
+  height: 45px;
+}
+
+.form-confirm__group-title {
+  text-align: left;
+  width: 200px;
+
+}
+
+.form-confirm-table__text-name{
+  width: 100px;
+}
+
+.form-confirm__label--required::after{
+  content: "※";
+  color: #ff0000;
+}
+
+.form-confirm__group-content{
+  margin-left: 80px;
+}
+.form-confirm__label--item{
+  color: #838383;
+}
+.form-confirm__error {
+  height: 20px;
+  color: #ff0000;
+  text-align: left;
+}
+
+
+
+.form-confirm__input--text-input{
+  margin-left: 15px;
+  appearance: none;
+  border: none;
+  background-color: #d7d3c96a;
+  height: 40px;
+  border-radius: 3px;
+  padding-left:3px ;
+
+}
+
+
+.form-confirm__button {
+  margin-top: 20px;
+}
+
+
+
+textarea{
+ resize: none;
+ color:  #4b442a;
+ padding-top: 10px;
+ font-family: 'Arial', sans-serif;
+
+}
+
+.register__link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+
+
+.form-confirm__input--text-input--area{
+  width: 500px;
+  height: 50px;
+}
+
+input,textarea{
+    margin-left: 15px;
+  appearance: none;
+  border: none;
+  height: 40px;
+  border-radius: 3px;
+  padding-left:3px ;
+}
+
+
+
+   .form-confirm__button {
+            display: flex;
+            justify-content: center; 
+        }
+
+
+.form-confirm__button-submit {
+  width: 100px;
+  height: 30px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 3px;
+  background: #4b442a;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.form-confirm__button-back{
+  border: none;
+   width: 100px;
+  height: 30px;
+  background-color: #fff;
+  text-decoration: underline;
+  color: #ab9963;
+  cursor: pointer;
+}
+
