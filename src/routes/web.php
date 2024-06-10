@@ -34,22 +34,14 @@ Route::post('/login', [AuthController::class, 'login']);
 });
 
 
-// Route::middleware(['auth'])->group(function () {
-
-//        
-// });
-
-
-
 Route::post('/register', [AuthController::class, 'store']);
-//Route::post('/admin', [AuthController::class, 'login']);
 
 Route::get('/contacts/export', [AdminController::class, 'export'])->name('search.export');
 
 
  Route::get('/admin/search', [AdminController::class, 'search']);
 Route::post('/contact/confirm', [ContactController::class, 'confirm']);
-Route::delete('/contact/delete', [ContactController::class, 'destroy']);
+Route::delete('/contact/delete', [AdminController::class, 'destroy']);
 Route::post('/contact/store', [ContactController::class, 'store']);
 Route::get('/thanks', [ContactController::class, 'thanks'])->name('thanks');
 

@@ -24,7 +24,7 @@
           <select class="search-form__item-select search-form__item-select-gender"  name="gender">
             <option  selected disabled  hidden>性別</option>
             @foreach ($genders as $gender)
-            <option value="{{ $gender['id'] }}">{{ $gender['name'] }}</option>
+             <option  value="{{ $gender['id']}}" {{ old('gender') == $gender['id'] ? 'selected' : '' }}>{{ $gender['name'] }} </option>
             @endforeach
           </select>
         </div>
@@ -35,7 +35,7 @@
         <select class="search-form__item-select search-form__item-select-category" name="category_id">
                   <option value="">お問い合わせの種類</option>
           @foreach ($categories as $category)
-          <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+           <option  value="{{ $category['id']}}" {{ old('category_id') == $category['id'] ? 'selected' : '' }}>{{ $category['content'] }} </option>
            @endforeach
         </select>
         </div>
@@ -48,7 +48,8 @@
 
     <div class="search-form__button">
       <button class="search-form__button-submit" type="submit">検索</button>
-      <button class="search-form__button-reset" type="reset">リセット</button>
+       
+      <button class="search-form__button-reset" type="submit"  name="reset"  value="reset">リセット</button>
     </div>
     </div>
 </div>
@@ -86,7 +87,7 @@
         <td class="search-table__item">{{$contact['email']}}</td>
         <td class="search-table__item">{{$contact['category']['content']}}</td>
         <td class="search-table__item"> 
-             @include('modal', ['contact' => $contact])
+             @include('modal', ['rowid' => $contact['id']])
         </td>
       </tr>
        @endforeach

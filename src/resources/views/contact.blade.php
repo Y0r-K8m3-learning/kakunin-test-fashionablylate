@@ -81,7 +81,7 @@
         <div class="form__input--text">
           <input type="text"  name="tell_first" placeholder="080" class="form__input--text-input form__input--tel" value="{{ old('tell_first') }}" />
          
-           -
+           - 
             <input type="text"  name="tell_second" placeholder="1234" class="form__input--text-input form__input--tel" value="{{ old('tell_second') }}" />
            
              -

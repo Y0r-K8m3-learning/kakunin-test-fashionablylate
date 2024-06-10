@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\Gender;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -19,34 +20,57 @@ class AdminController extends Controller
 
     }
 
-    const results = [];
 
     public function search(Request $request)
 {
-  $allcontacts = Contact::with('category')->ContactSearch($request);
-  $results = $allcontacts;
-  $contacts = $allcontacts->paginate(7);
-  
+
   $categories = Category::all();
   $genders = Gender::genders;
+   if($request->input('reset') == 'reset'){
+        Session::forget('search_contacts');
+            return redirect('/admin');
+             
+   }
+  $search_contacts = Contact::with('category')->ContactSearch($request);
 
+ Session::put('search_contacts', $search_contacts->get()->toArray());
+
+  $contacts = $search_contacts->paginate(7);
+  $request->flash();
 
   return view('/admin', compact('contacts', 'categories','genders'));
 }
+
+ 
+
+  public function destroy(Request $request)
+{
+    Contact::find($request->id)->delete();
+    return $this->search($request);
+}
+
+
+
   public function export(){
-   $results = session('results', collect());
 
     $header = ['お名前','性別','メールアドレス','お問い合わせの種類'];
-
-     // 書き込み用ファイルを開く
+    $results = Session::get('search_contacts', []);
      $f = fopen('contacts.csv', 'w');
      if ($f) {
          mb_convert_variables( 'UTF-8','UTF-8', $header);
-         fputcsv($f,mb_convert_encoding($header, 'SJIS-win', 'UTF-8'));
+         fputcsv($f,mb_convert_encoding($header, 'UTF-8', 'UTF-8'));
          foreach ($results as $record) {
-            mb_convert_variables( 'SJIS-win','UTF-8', $record);
+
+            $genders = Gender::genders;
+            foreach ($genders as $gender) {
+                if ($gender['id'] == $record['gender']) {
+                  $record['gendername'] = $gender['name'];
+                  break;
+                }
+            }
+            mb_convert_variables( 'UTF-8','UTF-8', $record);
             $data = [$record['last_name']. $record['first_name'],$record['gendername'],$record['email'],$record['category']['content']];
-            fputcsv($f, mb_convert_encoding($data, 'SJIS-win', 'UTF-8'));
+            fputcsv($f, mb_convert_encoding($data, 'UTF-8', 'UTF-8'));
 
          }
      }
