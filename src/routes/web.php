@@ -8,28 +8,18 @@ use App\Http\Controllers\AdminController;
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/', [AuthController::class, 'index']);
+        Route::get('/', [ContactController::class, 'index']);
 
+});
 
-      Route::get('/contact', function(){
-              return view('contact');
-            });
-
-      Route::get('/', [AdminController::class, 'index']);
-
-      Route::get('/contacts/search', [AdminController::class, 'search']);
-
-              Route::get('/contact', [ContactController::class, 'index']);
-
-              Route::post('/contacts/confirm', [ContactController::class, 'confirm']);
-
-              Route::post('/contacts', [ContactController::class, 'store']);
-
-              Route::delete('/todos/delete', [TodoController::class, 'destroy']);
-
-      });
-
-      Route::post('/register', [AuthController::class, 'store']);
+//Route::post('/register', [AuthController::class, 'store']);
+//Route::get('/admin', [AdminController::class, 'search']);
+//Route::post('/admin', [AuthController::class, 'login']);
+// Route::get('/admin/search', [AdminController::class, 'search']);
+// Route::post('/contact/confirm', [ContactController::class, 'confirm']);
+// Route::delete('/contact/delete', [ContactController::class, 'destroy']);
+// Route::post('/contact/store', [ContactController::class, 'store']);
+// Route::get('/thanks', [ContactController::class, 'thanks'])->name('thanks');
 
 
 

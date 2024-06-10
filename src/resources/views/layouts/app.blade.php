@@ -16,27 +16,35 @@
     <div class="header__inner">
       <div class="header-utilities">
         <a class="header__logo" href="/">
-          Attendance Management
+         FashionablyLate
         </a>
         <nav>
           <ul class="header-nav">
+            {{var_dump(Auth::check())}}
             @if (Auth::check())
-            <li class="header-nav__item">
-              <a class="header-nav__link" href="/mypage">マイページ</a>
-            </li>
             <li class="header-nav__item">
               <form class="form" action="/logout" method="post">
                 @csrf
                 <button class="header-nav__button">ログアウト</button>
               </form>
             </li>
+            @else
+              @if (Request::is('register'))
+                  <li>
+                      <a href="{{ route('login') }} "><button type="button" class="header-nav__button">login</button></a>
+                  </li>
+              @elseif (Request::is('login'))
+                  <li>
+                      <a class ="" href="/register"> <button type="button" class="header-nav__button">register</button></a>
+                  </li>
+              @endif
+              
             @endif
           </ul>
         </nav>
       </div>
     </div>
   </header>
-
   <main>
     @yield('content')
   </main>
