@@ -21,7 +21,7 @@ class ContactController extends Controller
   public function confirm(ContactRequest $request){
     
     $request['tell'] = $request['tell_first'].$request['tell_second'] . $request['tell_third'];
-     $contact = $request->only(['first_name', 'last_name', 'gender','gendername', 'email', 'tell', 'address', 'building', 'category_id','detail']);
+     $contact = $request->only(['first_name', 'last_name', 'gender','gendername', 'email', 'tell', 'address', 'building', 'category_id','detail','tell_first','tell_second','tell_third']);
 
     $contact['category']= Category::find($request->category_id);
     $genders = Gender::genders;
@@ -39,7 +39,7 @@ class ContactController extends Controller
   public function store(Request $request){
 
         if($request->input('back') == 'back'){
-            return redirect('/',$request);
+            return redirect('/contact')->withInput();
                         
         }
 
@@ -50,11 +50,7 @@ class ContactController extends Controller
          return redirect()->route('thanks');
   }
 
-  public function destroy(Request $request)
-{
-    Contact::find($request->id)->delete();
-    return redirect('/admin');
-}
+
 
 public function thanks()
 {
